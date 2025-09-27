@@ -1,11 +1,46 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Image from 'astro/components/Image.astro';
 import Layout from '../layouts/Layout.astro';
-
+import alvaro from '../assets/alvaro.webp';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<div class="min-h-screen bg-[url('../assets/hero.webp')] bg-cover bg-center flex flex-col justify-center gap-2">
+				<h2 class="text-3xl text-white pl-20 font-semibold">Tenor</h2>
+		<h1 class="text-8xl text-white pl-20 font-bold">Álvaro Diana</h1>
+	</div>
+	<div class="flex gap-20 max-w-7xl mx-auto items-center">
+		<Image src={alvaro} alt="Álvaro Diana" class="mx-auto my-10 rounded-lg shadow-lg w-1/4 flex-1"/>
+		<div class="flex-1">
+			<h3 class="text-3xl">Tenor</h2>
+			<p>Busco la perfección y la elegancia en mi trabajo. Quiero ser brillante tanto musical como escénicamente y, para ello, aprendo de cada uno de mis proyectos exigiéndome lo máximo a mí misma. La música es mi forma de comunicarme y mi meta es poder compartirla con todo el mundo.</p>
+		</div>
+	</div>
+	<div class="flex flex-col max-w-7xl mx-auto my-20">
+		<h3 class="text-3xl text-center mb-10">CONOCE MI TRABAJO</h3>
+		<div class="flex mx-auto gap-10">
+			<a>
+				<img src="https://img.youtube.com/vi/3fKZg0k7b2Y/maxresdefault.jpg" alt="YouTube Video" class="mx-auto my-10 rounded-lg shadow-lg w-1/2" />
+				<span>Próximos eventos</span>
+			</a>
+			<a>
+				<img src="https://img.youtube.com/vi/3fKZg0k7b2Y/maxresdefault.jpg" alt="YouTube Video" class="mx-auto my-10 rounded-lg shadow-lg w-1/2" />
+				<span>Multimedia</span>
+			</a>
+			<a>
+				<img src="https://img.youtube.com/vi/3fKZg0k7b2Y/maxresdefault.jpg" alt="YouTube Video" class="mx-auto my-10 rounded-lg shadow-lg w-1/2" />
+				<span>Apartado de prensa</span>
+			</a>
+		</div>
+		<button class="bg-amber-500 text-white px-6 py-3 rounded-lg mx-auto my-10 w-1/4">Contacta conmigo</button>
+	</div>
+	<div class="min-h-3/4 bg-[url('https://img2.rtve.es/i/?w=1600&i=1633972597466.jpg')] flex items-center">
+		<div class="max-w-7xl mx-auto flex w-100">
+			<div class="flex flex-col text-white"><h2>Tenor</h2>
+		<p>Álvaro, el tenor valenciano que cambió su vida por vivir su sueño.</p>
+		<button class="bg-amber-500 text-white py-3 rounded-lg my-10 w-100">Ir a biografía</button></div>
+		</div>
+	</div>
 </Layout>

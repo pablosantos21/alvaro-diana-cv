@@ -1,0 +1,39 @@
+---
+import Image from 'astro/components/Image.astro';
+import Layout from '../layouts/Layout.astro';
+import biografia from '../assets/biografia.jpeg';
+---
+
+<Layout>
+	<div class="min-h-screen bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-center gap-2">
+		<h1 class="text-8xl text-white pl-20 font-bold">Álvaro Diana</h1>
+        				<h2 class="text-3xl text-white pl-20 font-semibold">Biografía artística</h2>
+
+	</div>
+	<div class="flex gap-20 max-w-7xl mx-auto items-center">
+		<Image src={biografia} alt="Álvaro Diana" class="mx-auto my-10 rounded-lg shadow-lg w-1/4 flex-1"/>
+		<div class="flex-1">
+			<h3 class="text-3xl">Biografía</h3>
+			<p>Sofía Gutiérrez-Tobar nació en El Astillero, Cantabria, en 1999 y, desde muy joven, su formación musical y actividad artística siempre ha estado estrechamente ligada al canto. Fue integrante de la Escolanía de Astillero desde los 10 años, donde comenzó a cantar como coralista y empezó a gozar de sus primeras oportunidades como solista.</p>
+		</div>
+	</div>
+
+    <div class="flex justify-center gap-10">
+        		<Image src={biografia} alt="Álvaro Diana" class="mx-auto my-10 rounded-lg shadow-lg w-1/4 flex-1"/>
+<div class="mr-10">
+    <h3 class="text-4xl">Tenor</h3>
+   <div class="flex gap-10">
+    <p>Tras esta etapa de formación en la escolanía, comenzaría el grado en Ingeniería Aeroespacial en la Universidad de León y durante su estancia allí formo parte del coro Ángel Barja. Finalmente, acabaría dejando de lado sus estudios de ingeniería para dedicarse por entero a la música. De vuelta a Cantabria, entró a formar parte del Coro Joven de Santander y comenzó el Grado Profesional de Canto en el Conservatorio Ataúlfo Argenta en el año 2019.
+
+En el 2020 fue admitida en la Escuela Superior de Canto de Madrid, donde estudió con los profesores Juan Lomba y Duncan Gifford. Actualmente continúa cursando con Juan Lomba el Máster de Interpretación e Investigación Performativa del repertorio vocal español: Teatro Lírico y Canción de Concierto.
+
+Ha debutado los roles de Governess en la ópera The Turn of the Screw de Benjamin Britten, Ascensión en la zarzuela La del Manojo de Rosas de Pablo Sorozábal y Ana Mari en la zarzuela El Caserío de Jesús Guridi.</p>
+<p>Ha cantado como solista en obras como la Misa Solemne de Santa Cecilia de Charles Gounod, el Te Deum de Anton Bruckner, el Lobgesang de Felix Mendelssohn, la Bachiana Brasileira Nº 5 de Heitor Villa-Lobos y Les nuits d’été de Hector Berlioz.
+
+Ha actuado en diversos festivales por toda España como el Gala Fest, el Festival ASISA de Villaviciosa de Odón, el Festival Internacional Residencias de Música de Cámara de Godella, el Festival de música española de Cádiz, en el VI Memorial de Diego Martinez dentro del marco del Festival de Úbeda o el MUSEG.
+
+Entre sus próximos compromisos encontramos su debut en la Ópera de Oviedo en la producción de Hänsel und Gretel, su debut en el Teatro Monumental de Madrid con la orquesta RTVE interpretando 4 Canciones de Henri Duparc y Sieben Frühe Lieder de Alban Berg, así como un concierto organizado por la Embajada Española en Mascate (Omán) junto a la pianista María Argüeso Vega, con quien forma el Dúo Brisalia.</p>
+   </div>
+</div>
+    </div>
+</Layout>
