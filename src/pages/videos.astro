@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import hero from "../assets/hero.webp";
+
+const videos = [
+  { id: 1, src: "https://www.youtube.com/embed/4CrthhUFTho", title: "Video 1" },
+  { id: 2, src: "https://www.youtube.com/embed/rfQvjBFdvLA", title: "Video 2" },
+  { id: 3, src: "https://www.youtube.com/embed/Zj0sqaEVPxM", title: "Video 3" },
+  { id: 4, src: "https://www.youtube.com/embed/j167Drr_3PA", title: "Video 4" },
+];
+---
+
+<Layout title="Videos">
+  <div
+    class="min-h-screen bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
+  >
+    <h2 class="text-5xl text-white pl-20 font-semibold mb-10">Videos</h2>
+  </div>
+
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {
+        videos.map((v) => (
+          <div class="relative overflow-hidden rounded-lg shadow bg-black">
+            <iframe
+              src={v.src}
+              title={v.title}
+              class="w-full h-48 sm:h-64 lg:h-72"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

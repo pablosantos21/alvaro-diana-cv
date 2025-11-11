@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import hero from "../assets/hero.webp";
+import alvaro from "../assets/alvaro.webp";
+import biografia from "../assets/biografia.jpeg";
+import { Image } from "astro:assets";
+
+const photos = [hero, alvaro, biografia, hero, alvaro, hero];
+---
+
+<Layout title="Fotos">
+  <div
+    class="min-h-screen bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
+  >
+    <h2 class="text-5xl text-white pl-20 font-semibold mb-10">Fotos</h2>
+  </div>
+
+  <!-- Photos masonry section -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="masonry columns-1 sm:columns-2 lg:columns-3 gap-4">
+      {
+        photos.map((p, i) => (
+          <div
+            class="masonry-item mb-4"
+            style="break-inside: avoid; -webkit-column-break-inside: avoid;"
+          >
+            <Image
+              src={p}
+              alt={`Foto ${i + 1}`}
+              class="w-full rounded-lg cursor-pointer hover:scale-105 transition-transform"
+              data-src={p}
+              data-alt={`Foto ${i + 1}`}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden"
+  >
+    <button
+      id="lightbox-close"
+      aria-label="Cerrar"
+      class="absolute top-6 right-6 text-white text-3xl leading-none">✕</button
+    >
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="max-h-[90vh] max-w-[90vw] rounded shadow-lg"
+    />
+  </div>
+
+  <script type="module">
+    const masonry = document.querySelector(".masonry");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxClose = document.getElementById("lightbox-close");
+
+    function openLightbox(src, alt) {
+      if (!src) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightbox.classList.remove("hidden");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add("hidden");
+      lightboxImg.src = "";
+      lightboxImg.alt = "";
+    }
+
+    if (masonry) {
+      masonry.addEventListener("click", function (e) {
+        var el = e.target;
+        while (el && el.tagName !== "IMG") el = el.parentElement;
+        if (!el) return;
+        var src = el.currentSrc || el.src || el.getAttribute("data-src");
+        var alt = el.getAttribute("data-alt") || el.alt || "";
+        openLightbox(src, alt);
+      });
+    }
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+</Layout>

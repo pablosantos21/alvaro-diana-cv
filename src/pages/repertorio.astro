@@ -1,0 +1,305 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+type RepertoireCategory = "opera";
+
+interface RepertoireItem {
+  composer: string;
+  works: {
+    opera: string;
+    role: string;
+    status: string;
+  }[];
+}
+
+const repertoireData: Record<RepertoireCategory, RepertoireItem[]> = {
+  opera: [
+    {
+      composer: "W.A Mozart",
+      works: [
+        {
+          opera: "Don Giovanni",
+          role: "Don Ottavio",
+          status: "Teatro Circo 2023",
+        },
+        { opera: "Cosi Fan Tutte", role: "Ferrando", status: "Studio" },
+        { opera: "Zauberflöte", role: "Tamino", status: "Studio" },
+        {
+          opera: "Zauberflöte",
+          role: "1er Priester",
+          status: "Staatsoper Berlín 2025",
+        },
+        {
+          opera: "Le Nozze di Figaro",
+          role: "Don Basilio",
+          status: "Valencia 2023",
+        },
+        {
+          opera: "Le Nozze di Figaro",
+          role: "Don Curzio",
+          status: "Valencia 2023",
+        },
+        { opera: "Idomeneo", role: "Idamante", status: "Studio" },
+      ],
+    },
+    {
+      composer: "G.Donizetti",
+      works: [
+        {
+          opera: "Elisir d'Amore",
+          role: "Nemorino",
+          status: "Cover Xabier Anduaga 2026",
+        },
+        { opera: "Lucia di Lamermoor", role: "Edgardo", status: "Studio" },
+        { opera: "Lucia di Lamermoor", role: "Arturo", status: "Studio" },
+      ],
+    },
+    {
+      composer: "G.Puccini",
+      works: [
+        {
+          opera: "Turandot",
+          role: "Pang",
+          status: "Teatro Perez Galdós - 2026",
+        },
+        {
+          opera: "La Bohème",
+          role: "Rodolfo",
+          status: "Cover Ramón Vargas 2023",
+        },
+        { opera: "Gianni Schicchi", role: "Rinuccio", status: "Studied" },
+        {
+          opera: "Manon Lescaut",
+          role: "Maestro di Ballo",
+          status: "Opernhaus Zurich 2025 - Liceu Barcelona 2026",
+        },
+        {
+          opera: "Tosca",
+          role: "Spoletta",
+          status: "Cover Staatsoper Berlín 2026",
+        },
+        { opera: "Manon Lescaut", role: "Edmondo", status: "Studio" },
+      ],
+    },
+    {
+      composer: "G. Verdi",
+      works: [
+        {
+          opera: "La Traviata",
+          role: "Alfredo",
+          status: "Teatro Badajoz - Cullearts 2024",
+        },
+        { opera: "Rigoletto", role: "Duca di Mantua", status: "Studio" },
+        { opera: "Aida", role: "Messagiero", status: "Staatsoper Berlín 2026" },
+        { opera: "Otello", role: "Casio", status: "Studio" },
+        { opera: "Macbeth", role: "Malcomn", status: "Studio" },
+        { opera: "Falstaff", role: "Fenton", status: "Studio" },
+      ],
+    },
+    {
+      composer: "C. Gounod",
+      works: [
+        {
+          opera: "Romeo et Juliette",
+          role: "Tybalt",
+          status: "Cover Staatsoper Berlín 2025",
+        },
+      ],
+    },
+    {
+      composer: "H. Purcell",
+      works: [
+        {
+          opera: "Dido y Eneas",
+          role: "Segunda Bruja - Espíritu",
+          status: "Staatsoper Berlín 2025",
+        },
+      ],
+    },
+    {
+      composer: "G. Rossini",
+      works: [
+        {
+          opera: "Viaggio a Reims",
+          role: "Belfiore",
+          status: "Winterthur Theatre 2025",
+        },
+      ],
+    },
+    {
+      composer: "E.W Korngold",
+      works: [
+        {
+          opera: "Die Tote Stadt",
+          role: "Graf Albert",
+          status: "Opernhaus Zúrich 2025",
+        },
+      ],
+    },
+    {
+      composer: "R.Strauss",
+      works: [
+        { opera: "Salomé", role: "4th Judio", status: "Opernhaus Zúrich 2025" },
+        {
+          opera: "Ariadne auf Naxos",
+          role: "Scaramuccio",
+          status: "Staatsoper Berlín 2026",
+        },
+      ],
+    },
+    {
+      composer: "V. Bellini",
+      works: [
+        { opera: "Norma", role: "Flavio", status: "Staatsoper Berlín 2026" },
+      ],
+    },
+    {
+      composer: "C. Saint Saens",
+      works: [
+        {
+          opera: "Samson et Dalila",
+          role: "1st Filisteo",
+          status: "Staatsoper Berlín 2026",
+        },
+      ],
+    },
+    {
+      composer: "J. Offenbach",
+      works: [
+        {
+          opera: "Contes d'Hoffman",
+          role: "Nathanael",
+          status: "Staatsoper Berlín 2025",
+        },
+      ],
+    },
+    {
+      composer: "C.M Weber",
+      works: [
+        {
+          opera: "Der Freischütz",
+          role: "Max",
+          status: "Staatsoper Berlín 2026",
+        },
+      ],
+    },
+    {
+      composer: "P. Viardot",
+      works: [
+        {
+          opera: "Cendrillon",
+          role: "Prince Charmant",
+          status: "Palau de les Arts 2024",
+        },
+      ],
+    },
+    {
+      composer: "L. Bernstein",
+      works: [
+        {
+          opera: "West Side Story",
+          role: "Toni",
+          status: "Teatro Huesca 2024",
+        },
+      ],
+    },
+    {
+      composer: "R. Leoncavallo",
+      works: [{ opera: "Pagliacci", role: "Arlechin", status: "Studio" }],
+    },
+  ],
+};
+
+const activeCategory = "opera";
+---
+
+<Layout title="Repertorio">
+  <!-- Hero Section -->
+  <div
+    class="min-h-screen bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
+  >
+    <h2 class="text-5xl text-white pl-20 font-semibold mb-10">Repertorio</h2>
+  </div>
+
+  <!-- Repertoire Table -->
+  <div class="container mx-auto px-4 lg:px-8 py-12">
+    <!-- Table for larger screens -->
+    <div class="hidden md:block overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b-2 border-gray-900">
+            <th
+              class="text-left py-6 px-6 font-semibold uppercase tracking-wider text-sm text-gray-900"
+              >Compositor</th
+            >
+            <th
+              class="text-left py-6 px-6 font-semibold uppercase tracking-wider text-sm text-gray-900"
+              >Ópera</th
+            >
+            <th
+              class="text-left py-6 px-6 font-semibold uppercase tracking-wider text-sm text-gray-900"
+              >Papel</th
+            >
+            <th
+              class="text-left py-6 px-6 font-semibold uppercase tracking-wider text-sm text-gray-900"
+              >Estudio/Interpretado</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          {
+            repertoireData[activeCategory].map((item, composerIndex) =>
+              item.works.map((work, workIndex) => (
+                <tr
+                  class={
+                    workIndex === item.works.length - 1
+                      ? "border-b-2 border-gray-900"
+                      : "border-b border-gray-200"
+                  }
+                >
+                  {workIndex === 0 ? (
+                    <td
+                      rowspan={item.works.length}
+                      class="py-8 px-6 align-top font-medium text-gray-900 text-base"
+                    >
+                      {item.composer}
+                    </td>
+                  ) : null}
+                  <td class="py-6 px-6 text-gray-900">{work.opera}</td>
+                  <td class="py-6 px-6 text-gray-900">{work.role}</td>
+                  <td class="py-6 px-6 text-gray-500">{work.status}</td>
+                </tr>
+              ))
+            )
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- List for smaller screens -->
+    <div class="block md:hidden">
+      {
+        repertoireData[activeCategory].map((item) => (
+          <div class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">
+              {item.composer}
+            </h3>
+            {item.works.map((work) => (
+              <div class="mb-4 border-b border-gray-200 pb-4">
+                <p class="text-gray-900">
+                  <span class="font-medium">Ópera:</span> {work.opera}
+                </p>
+                <p class="text-gray-900">
+                  <span class="font-medium">Papel:</span> {work.role}
+                </p>
+                <p class="text-gray-500">
+                  <span class="font-medium">Estado:</span> {work.status}
+                </p>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

@@ -2,6 +2,51 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-    <h1>Contacto</h1>
+<Layout title="Contacto">
+  <!-- Hero -->
+  <div
+    class="min-h-screen bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
+  >
+    <h2 class="text-5xl text-white pl-20 font-semibold mb-10">Contacto</h2>
+  </div>
+
+  <!-- Contact Information -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-3xl font-bold mb-6 text-center">Información de Contacto</h2>
+
+    <div class="flex flex-wrap gap-6 justify-center text-center">
+      <div class="flex-1 min-w-[250px]">
+        <img
+          src="../assets/astro.svg"
+          alt="Logo Álvaro Diana"
+          class="w-16 h-auto mx-auto mb-4"
+        />
+        <h3 class="text-xl font-semibold">Álvaro Diana</h3>
+        <p class="text-gray-700">Teléfono: +34 679 319 714</p>
+        <p class="text-gray-700">Correo: alvarodiana1@gmail.com</p>
+      </div>
+
+      <div class="flex-1 min-w-[250px]">
+        <img
+          src="../assets/astro.svg"
+          alt="Logo General Management"
+          class="w-16 h-auto mx-auto mb-4"
+        />
+        <h3 class="text-xl font-semibold">General Management</h3>
+        <p class="text-gray-700">Xavi Aragonés - Lerín Management</p>
+        <p class="text-gray-700">Correo: xavi@lerinartists.com</p>
+      </div>
+
+      <div class="flex-1 min-w-[250px]">
+        <img
+          src="../assets/astro.svg"
+          alt="Logo France & Italy Management"
+          class="w-16 h-auto mx-auto mb-4"
+        />
+        <h3 class="text-xl font-semibold">France & Italy Management</h3>
+        <p class="text-gray-700">Maria Rosa Vigoroux - Panta Rei Music</p>
+        <p class="text-gray-700">Correo: direction@pantareimusic.com</p>
+      </div>
+    </div>
+  </section>
 </Layout>
