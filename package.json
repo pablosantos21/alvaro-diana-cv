@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.5.11",
+    "@fontsource-variable/montserrat": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.14.1",
     "resend": "^6.1.0",
