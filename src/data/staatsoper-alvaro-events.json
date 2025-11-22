@@ -1,0 +1,99 @@
+{
+  "source": "https://www.staatsoper-berlin.de/en/kuenstler/alvaro-diana.3727/",
+  "generatedAt": "2025-11-22",
+  "plays": [
+    {
+      "title": "Les Contes d’Hoffmann",
+      "composer": "Jacques Offenbach",
+      "category": "Ópera",
+      "place": "Staatsoper Unter den Linden",
+      "stageDirector": "Lydia Steier",
+      "musicDirector": "Bertrand de Billy",
+      "occurrences": [
+        { "date": "2025-11-26", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/les-contes-d-hoffmann.21881/#event-123564" },
+        { "date": "2025-11-28", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/les-contes-d-hoffmann.21881/#event-123563" },
+        { "date": "2025-12-13", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/les-contes-d-hoffmann.21881/#event-123565" }
+      ]
+    },
+    {
+      "title": "Die Zauberflöte",
+      "composer": "Wolfgang Amadeus Mozart",
+      "category": "Ópera",
+      "place": "Staatsoper Unter den Linden",
+      "stageDirector": "August Everding",
+      "musicDirector": "Tim Fluch",
+      "occurrences": [
+        { "date": "2025-12-17", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123331" },
+        { "date": "2025-12-20", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123332" },
+        { "date": "2025-12-26T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123333" },
+        { "date": "2025-12-27T19:30:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123334" },
+        { "date": "2026-01-10T19:30:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123335" },
+        { "date": "2026-04-11T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123336" },
+        { "date": "2026-04-17T19:30:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123337" },
+        { "date": "2026-05-24T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/die-zauberfloete.15/#event-123338" }
+      ]
+    },
+    {
+      "title": "La Bohème",
+      "composer": "Giacomo Puccini",
+      "category": "Ópera",
+      "place": "Staatsoper Unter den Linden",
+      "stageDirector": "Lindy Hume",
+      "musicDirector": "Clelia Cafiero",
+      "occurrences": [
+        { "date": "2025-12-26", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/la-boheme.24/#event-68284" },
+        { "date": "2025-12-30T19:30:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/la-boheme.24/#event-123427" },
+        { "date": "2026-01-02T19:30:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/la-boheme.24/#event-123429" },
+        { "date": "2026-01-03T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/la-boheme.24/#event-123429" }
+      ]
+    },
+    {
+      "title": "Ariadne auf Naxos",
+      "composer": "Richard Strauss",
+      "category": "Ópera",
+      "place": "Staatsoper Unter den Linden",
+      "stageDirector": "Hans Neuenfels",
+      "musicDirector": "Eun Sun Kim",
+      "occurrences": [
+        { "date": "2026-04-19T18:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/ariadne-auf-naxos.21/#event-123474" },
+        { "date": "2026-04-23T19:30:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/ariadne-auf-naxos.21/#event-123475" },
+        { "date": "2026-04-25T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/ariadne-auf-naxos.21/#event-123476" }
+      ]
+    },
+    {
+      "title": "Aida",
+      "composer": "Giuseppe Verdi",
+      "category": "Ópera",
+      "place": "Staatsoper Unter den Linden",
+      "stageDirector": "Calixto Bieito",
+      "musicDirector": "John Fiore",
+      "occurrences": [
+        { "date": "2026-04-29T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/aida.12152/#event-124085" },
+        { "date": "2026-05-10T18:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/aida.12152/#event-124088" }
+      ]
+    },
+    {
+      "title": "Norma",
+      "composer": "Vincenzo Bellini",
+      "category": "Ópera",
+      "place": "Staatsoper Unter den Linden",
+      "stageDirector": "Vasily Barkhatov",
+      "musicDirector": "Giuseppe Mentuccia",
+      "occurrences": [
+        { "date": "2026-05-05T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/norma.15538/#event-123477" }
+      ]
+    },
+    {
+      "title": "Samson et Dalila",
+      "composer": "Camille Saint-Saëns",
+      "category": "Ópera",
+      "place": "Staatsoper Unter den Linden",
+      "stageDirector": "Damián Szifron",
+      "musicDirector": "Alexander Soddy",
+      "occurrences": [
+        { "date": "2026-07-04T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/samson-et-dalila.7651/#event-123557" },
+        { "date": "2026-07-07T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/samson-et-dalila.7651/#event-123557" }
+      ]
+    }
+  ]
+}
