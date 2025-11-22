@@ -1,5 +1,7 @@
 ---
-
+import { Image } from "astro:assets";
+import logoWhite from "../assets/logo_white.png";
+import logoBlack from "../assets/logo_black.png";
 ---
 
 <header
@@ -11,9 +13,20 @@
       id="site-title"
       class="text-xl font-bold text-white transition-colors duration-300"
     >
-      <a href="/" class="hover:opacity-80 transition-opacity duration-300"
-        >Álvaro Diana</a
-      >
+      <a href="/" class="hover:opacity-80 transition-opacity duration-300">
+        <Image
+          src={logoWhite}
+          alt="Álvaro Diana"
+          class="h-16 w-16 block transition-opacity duration-300"
+          id="logo-white"
+        />
+        <Image
+          src={logoBlack}
+          alt="Álvaro Diana"
+          class="h-16 w-16 hidden transition-opacity duration-300"
+          id="logo-black"
+        />
+      </a>
     </h1>
 
     <!-- Hamburger button for mobile -->
@@ -21,6 +34,7 @@
       id="menu-toggle"
       class="md:hidden text-white focus:outline-none ml-auto md:ml-0 order-3 md:order-2"
       aria-label="Abrir menú"
+      aria-expanded="false"
     >
       <svg
         class="w-6 h-6"
@@ -36,10 +50,10 @@
       </svg>
     </button>
 
-    <nav>
+    <nav class="hidden md:block">
       <ul
-        id="menu"
-        class="hidden flex-col md:flex md:flex-row md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-black md:bg-transparent"
+        id="desktop-menu"
+        class="hidden md:flex md:flex-row md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-black md:bg-transparent"
       >
         <li>
           <a
@@ -79,48 +93,145 @@
   </div>
 </header>
 
-<script>
-  const header = document.getElementById("site-header");
-  const title = document.getElementById("site-title");
-  const menuToggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("menu");
-  const links = menu.querySelectorAll("a");
+<!-- Mobile menu modal (shown only on small screens) -->
+<div
+  id="mobile-menu-modal"
+  class="fixed inset-0 bg-black bg-opacity-95 hidden z-50 md:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+>
+  <div class="absolute top-4 right-4">
+    <button
+      id="mobile-menu-close"
+      aria-label="Cerrar menú"
+      class="text-white p-2"
+    >
+      ✕
+    </button>
+  </div>
 
-  // Scroll: change background and text color
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
+  <nav class="h-full flex items-center justify-center">
+    <ul
+      id="mobile-menu"
+      class="flex flex-col items-center gap-6 text-white text-lg"
+    >
+      <li><a href="/biografia" class="px-4 py-2">Biografía</a></li>
+      <li><a href="/eventos" class="px-4 py-2">Eventos</a></li>
+      <li><a href="/repertorio" class="px-4 py-2">Repertorio</a></li>
+      <li><a href="/fotos" class="px-4 py-2">Fotos</a></li>
+      <li><a href="/videos" class="px-4 py-2">Videos</a></li>
+      <li><a href="/contacto" class="px-4 py-2">Contacto</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("site-header");
+    const title = document.getElementById("site-title");
+    const menuToggle = document.getElementById("menu-toggle");
+    const desktopMenu = document.getElementById("desktop-menu");
+    const mobileModal = document.getElementById("mobile-menu-modal");
+    const mobileClose = document.getElementById("mobile-menu-close");
+    const desktopLinks = desktopMenu ? desktopMenu.querySelectorAll("a") : [];
+    const mobileLinks = mobileModal ? mobileModal.querySelectorAll("a") : [];
+    const logoWhite = document.getElementById("logo-white");
+    const logoBlack = document.getElementById("logo-black");
+
+    if (!header || !title) return;
+
+    const isDesktop = () => window.matchMedia("(min-width: 768px)").matches;
+
+    const applyDesktopScrolled = () => {
       header.classList.add("bg-white", "shadow-md");
       header.classList.remove("bg-transparent");
       title.classList.remove("text-white");
       title.classList.add("text-black");
-      links.forEach((a) => {
+      if (logoWhite && logoBlack) {
+        logoWhite.classList.add("hidden");
+        logoBlack.classList.remove("hidden");
+      }
+      desktopLinks.forEach((a) => {
         a.classList.remove("text-white");
         a.classList.add("text-black");
       });
-      // make hamburger black on scroll (mobile)
       if (menuToggle) {
         menuToggle.classList.remove("text-white");
         menuToggle.classList.add("text-black");
       }
-    } else {
+    };
+
+    const applyDesktopTop = () => {
+      if (logoWhite && logoBlack) {
+        logoWhite.classList.remove("hidden");
+        logoBlack.classList.add("hidden");
+      }
       header.classList.remove("bg-white", "shadow-md");
       header.classList.add("bg-transparent");
       title.classList.remove("text-black");
       title.classList.add("text-white");
-      links.forEach((a) => {
+      desktopLinks.forEach((a) => {
         a.classList.remove("text-black");
         a.classList.add("text-white");
       });
-      // revert hamburger color
       if (menuToggle) {
         menuToggle.classList.remove("text-black");
         menuToggle.classList.add("text-white");
       }
-    }
-  });
+    };
 
-  // Mobile menu toggle
-  menuToggle.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+    const onScroll = () => {
+      if (window.scrollY > 50) applyDesktopScrolled();
+      else applyDesktopTop();
+    };
+
+    // Prevent background scroll when modal is open
+    const openMobileModal = () => {
+      if (!mobileModal) return;
+      mobileModal.classList.remove("hidden");
+      mobileModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      if (menuToggle) menuToggle.setAttribute("aria-expanded", "true");
+    };
+
+    const closeMobileModal = () => {
+      if (!mobileModal) return;
+      mobileModal.classList.add("hidden");
+      mobileModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+    };
+
+    // Event listeners
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+
+    if (menuToggle) {
+      menuToggle.addEventListener("click", (e) => {
+        if (!isDesktop()) {
+          openMobileModal();
+        } else if (desktopMenu) {
+          desktopMenu.classList.toggle("hidden");
+        }
+      });
+    }
+
+    if (mobileClose) {
+      mobileClose.addEventListener("click", closeMobileModal);
+    }
+
+    if (mobileModal) {
+      // close when clicking the overlay outside the nav
+      mobileModal.addEventListener("click", (ev) => {
+        if (ev.target === mobileModal) closeMobileModal();
+      });
+    }
+
+    // close modal when a mobile link is clicked
+    mobileLinks.forEach((a) => {
+      a.addEventListener("click", () => closeMobileModal());
+    });
   });
 </script>

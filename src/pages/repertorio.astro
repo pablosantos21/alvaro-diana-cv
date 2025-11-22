@@ -216,7 +216,7 @@ const activeCategory = "opera";
 <Layout title="Repertorio">
   <!-- Hero Section -->
   <div
-    class="min-h-screen bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
+    class="min-h-screen bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-right flex flex-col justify-end"
   >
     <h2 class="text-5xl text-white pl-20 font-semibold mb-10">Repertorio</h2>
   </div>
@@ -293,7 +293,8 @@ const activeCategory = "opera";
                   <span class="font-medium">Papel:</span> {work.role}
                 </p>
                 <p class="text-gray-500">
-                  <span class="font-medium">Estado:</span> {work.status}
+                  <span class="font-medium hidden sm:inline">Estado:</span>{" "}
+                  {work.status}
                 </p>
               </div>
             ))}
