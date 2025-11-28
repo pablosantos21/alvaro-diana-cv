@@ -172,6 +172,7 @@ const previousPlays = playsWithRanges
                       </div>
                       <p class="text-gray-600 mb-1">{event.place}</p>
                       <div class="text-xs text-gray-500 space-y-1">
+                        {event.role ? <p>Rol: {event.role}</p> : null}
                         {event.stageDirector ? (
                           <p>Dir. Escena: {event.stageDirector}</p>
                         ) : null}
@@ -259,6 +260,7 @@ const previousPlays = playsWithRanges
                       </div>
                       <p class="text-gray-600 mb-1">{event.place}</p>
                       <div class="text-xs text-gray-500 space-y-1">
+                        {event.role ? <p>Rol: {event.role}</p> : null}
                         {event.stageDirector ? (
                           <p>Dir. Escena: {event.stageDirector}</p>
                         ) : null}
