@@ -2,6 +2,7 @@
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 import principal from "../assets/principal.webp";
+import principalMobile from "../assets/alvaro.webp";
 import eventsData from "../data/staatsoper-alvaro-events.json";
 
 // Helper to format a human-friendly date range for a play's occurrences
@@ -12,6 +13,17 @@ function formatDateRange(occs) {
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   const start = new Date(dates[0].date);
   const end = new Date(dates[dates.length - 1].date);
+  const sameDay =
+    start.getFullYear() === end.getFullYear() &&
+    start.getMonth() === end.getMonth() &&
+    start.getDate() === end.getDate();
+
+  if (sameDay) {
+    const day = start.getDate();
+    const month = start.toLocaleDateString("es-ES", { month: "long" });
+    const year = start.getFullYear();
+    return `${day} ${month} ${year}`;
+  }
 
   const sameMonth =
     start.getMonth() === end.getMonth() &&
@@ -78,10 +90,18 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
       class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12"
     >
       <div class="w-full lg:w-1/2 flex justify-center">
+        {/* Mobile image (visible on small screens) */}
+        <Image
+          src={principalMobile}
+          alt="Álvaro Diana"
+          class="rounded-lg shadow-lg w-48 sm:w-64 md:hidden max-w-xs"
+        />
+
+        {/* Desktop image (hidden on small screens) */}
         <Image
           src={principal}
           alt="Álvaro Diana"
-          class="rounded-lg shadow-lg w-64 sm:w-80 md:w-96 lg:w-full max-w-md"
+          class="rounded-lg shadow-lg hidden md:block w-64 sm:w-80 md:w-96 lg:w-full max-w-md"
         />
       </div>
       <div class="w-full lg:w-1/2 text-center lg:text-left">
@@ -290,6 +310,9 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
                       {play.title}
                     </h3>
                     <span class="text-sm text-gray-500">{play.composer}</span>
+                    {play.role ? (
+                      <span class="text-sm text-gray-500 ml-2">Rol: {play.role}</span>
+                    ) : null}
                   </div>
                   <p class="text-gray-600 mb-1">{play.place}</p>
                   <div class="text-xs text-gray-500 space-y-1">

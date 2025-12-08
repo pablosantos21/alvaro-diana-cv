@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import logo1 from "../assets/lrn.png";
 import logo2 from "../assets/pantarei.png";
+import logoBlack from "../assets/logo_black.png";
+
 ---
 
 <Layout title="Contacto">
@@ -19,11 +21,13 @@ import logo2 from "../assets/pantarei.png";
 
     <div class="flex flex-wrap gap-6 justify-center text-center">
       <div class="flex-1 min-w-[250px]">
-        <img
-          src="../assets/astro.svg"
-          alt="Logo Álvaro Diana"
+         <Image
+          src={logoBlack}
+          alt="Álvaro Diana"
           class="w-16 h-auto mx-auto mb-4"
+          id="logo-black"
         />
+
         <h3 class="text-xl font-semibold">Álvaro Diana</h3>
         <p class="text-gray-700">
           Teléfono: <a href="tel:+34679319714">+34 679 319 714</a>
