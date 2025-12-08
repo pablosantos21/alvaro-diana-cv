@@ -101,6 +101,32 @@
         { "date": "2026-07-04T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/samson-et-dalila.7651/#event-123557" },
         { "date": "2026-07-07T19:00:00", "eventUrl": "https://www.staatsoper-berlin.de/en/veranstaltungen/samson-et-dalila.7651/#event-123557" }
       ]
+    },
+    {
+      "title": "Manon Lescaut",
+      "composer": "Giacomo Puccini",
+      "category": "Ópera",
+      "place": "Gran Teatre del Liceu",
+      "stageDirector": "Àlex Ollé",
+      "musicDirector": "Josep Pons",
+      "role": "El mestre de Ball",
+      "occurrences": [
+        { "date": "2026-03-17T19:30:00", "eventUrl": "https://www.liceubarcelona.cat/ca/manon-lescaut" },
+         { "date": "2026-04-01T19:30:00", "eventUrl": "https://www.liceubarcelona.cat/ca/manon-lescaut" }
+      ]
+    },
+    {
+      "title": "Turandot",
+      "composer": "Giacomo Puccini",
+      "category": "Ópera",
+      "place": "Teatro Pérez Galdós",
+      "stageDirector": "Daniele Piscopo",
+      "musicDirector": "Sesto Quatrini",
+      "role": "Pang",
+      "occurrences": [
+        { "date": "2026-06-16T19:30:00", "eventUrl": "https://www.operalaspalmas.com/eventos/turandot/" },
+         { "date": "2026-06-20T19:30:00", "eventUrl": "https://www.operalaspalmas.com/eventos/turandot/" }
+      ]
     }
   ]
 }
