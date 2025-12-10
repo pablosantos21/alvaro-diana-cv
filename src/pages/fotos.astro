@@ -1,34 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import hero from "../assets/hero.webp";
-import alvaro from "../assets/alvaro.webp";
-import biografia from "../assets/biografia.jpeg";
+// Use the Image component from Astro assets
 import { Image } from "astro:assets";
 
-const photos = [hero, alvaro, biografia, hero, alvaro, hero];
+// Import photos from the assets/fotos folder
+import photo1 from "../assets/fotos/Photo Alvaro D.jpg";
+import photo2 from "../assets/fotos/Photo Álvaro D.jpg";
+import photo3 from "../assets/fotos/Photo Álvaro D(1).jpg";
+import photo4 from "../assets/fotos/Photo Álvaro.jpeg";
+import photo5 from "../assets/fotos/Photo Álvaro.jpg";
+import photo6 from "../assets/fotos/Photo Álvaro(1).jpeg";
+import photo7 from "../assets/fotos/Photo Álvaro(1).jpg";
+import photo8 from "../assets/fotos/Photo Álvaro(2).jpeg";
+import photo9 from "../assets/fotos/Photo Álvaro(2).jpg";
+import photo10 from "../assets/fotos/Photo Álvaro(3).jpg";
+import photo11 from "../assets/fotos/Photo Álvaro(4).jpg";
+import photo12 from "../assets/fotos/Photo Álvaro(5).jpg";
+
+// Array of photos shown in the masonry
+const photos = [
+  photo2,
+  photo1,
+  photo3,
+  photo4,
+  photo5,
+  photo6,
+  photo7,
+  photo8,
+  photo9,
+  photo10,
+  photo11,
+  photo12,
+];
 ---
 
 <Layout title="Fotos">
   <div
-    class="min-h-[100dvh] bg-[url('../assets/test4.webp')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
+    class="min-h-[60dvh] md:min-h-[100dvh] bg-[url('../assets/test4.webp')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
   >
-    <h2 class="text-5xl text-white pl-20 font-semibold mb-10">Fotos</h2>
+    <h2 class="text-5xl text-white pl-20 font-semibold mb-10 hidden md:block">
+      Fotos
+    </h2>
   </div>
 
   <!-- Photos masonry section -->
   <section class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-5xl text-center font-semibold mb-10 block md:hidden">
+      Fotos
+    </h2>
     <div class="masonry columns-1 sm:columns-2 lg:columns-3 gap-4">
       {
         photos.map((p, i) => (
-          <div
-            class="masonry-item mb-4"
-            style="break-inside: avoid; -webkit-column-break-inside: avoid;"
-          >
-            <Image
-              src={p}
+          <div class="masonry-item mb-4">
+            <img
+              src={p.src}
               alt={`Foto ${i + 1}`}
-              class="w-full rounded-lg cursor-pointer hover:scale-105 transition-transform"
+              class="w-full rounded-lg cursor-pointer hover:scale-105 transition-transform gallery-img"
               data-src={p}
               data-alt={`Foto ${i + 1}`}
             />
@@ -41,7 +69,7 @@ const photos = [hero, alvaro, biografia, hero, alvaro, hero];
   <!-- Lightbox -->
   <div
     id="lightbox"
-    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden"
+    class="fixed inset-0 bg-black/80 items-center justify-center z-50 hidden"
   >
     <button
       id="lightbox-close"
@@ -66,13 +94,57 @@ const photos = [hero, alvaro, biografia, hero, alvaro, hero];
       if (!src) return;
       lightboxImg.src = src;
       lightboxImg.alt = alt || "";
+      // show lightbox by removing hidden and adding flex
       lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
     }
 
     function closeLightbox() {
+      // hide lightbox by removing flex and adding hidden
+      lightbox.classList.remove("flex");
       lightbox.classList.add("hidden");
       lightboxImg.src = "";
       lightboxImg.alt = "";
+    }
+
+    // Fix orientation/rotation issues by comparing natural dimensions with displayed dimensions
+    function fixImageOrientation() {
+      const imgs = document.querySelectorAll(".gallery-img");
+      if (!imgs) return;
+      imgs.forEach((img) => {
+        function check() {
+          const nw = img.naturalWidth || 0;
+          const nh = img.naturalHeight || 0;
+          const dw = img.clientWidth || 0;
+          const dh = img.clientHeight || 0;
+
+          // If the source is portrait (nh > nw) but it's being displayed wider than tall (dw > dh), rotate it
+          if (nh > nw && dw > dh) {
+            img.style.transform = "rotate(90deg)";
+            img.style.objectFit = "contain";
+            img.style.maxHeight = "90vh";
+            img.style.maxWidth = "90vw";
+          } else {
+            img.style.transform = "";
+            img.style.objectFit = "";
+            img.style.maxHeight = "";
+            img.style.maxWidth = "";
+          }
+        }
+
+        if (img.complete) {
+          check();
+        } else {
+          img.addEventListener("load", check);
+        }
+
+        // Re-check on window resize to adapt layout changes
+        window.addEventListener("resize", () => {
+          // small debounce
+          clearTimeout(img._orientTimeout);
+          img._orientTimeout = setTimeout(check, 120);
+        });
+      });
     }
 
     if (masonry) {
@@ -85,6 +157,9 @@ const photos = [hero, alvaro, biografia, hero, alvaro, hero];
         openLightbox(src, alt);
       });
     }
+
+    // run orientation fix shortly after load
+    window.requestAnimationFrame(() => setTimeout(fixImageOrientation, 120));
 
     lightbox.addEventListener("click", function (e) {
       if (e.target === lightbox || e.target === lightboxClose) closeLightbox();

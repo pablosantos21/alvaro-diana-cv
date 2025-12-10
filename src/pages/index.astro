@@ -11,6 +11,7 @@ import img5 from "../assets/gran_canaria.png";
 import img6 from "../assets/berlin.avif";
 import eventsData from "../data/staatsoper-alvaro-events.json";
 import EventItem from "../components/EventItem.astro";
+import Testimonials from "../components/Testimonials.astro";
 
 const images = [img1, img2, img3, img4, img5, img6];
 
@@ -114,10 +115,14 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
           class="mb-6 lg:mb-8 text-gray-700 leading-relaxed text-xl max-w-2xl mx-auto lg:mx-0"
         >
           El tenor Español ha sido seleccionado para formar parte del roster de
-          cantantes del Opernstudio de la Ópera Estatal de Berlín (Staatsoper
-          Unter den Linden) en la temporada 2025-2026 donde interpretará roles
-          como “Max” en Der Freischütz, “Flavio” en Norma, “Scaramuccio” en
-          Ariadne auf Naxos, “Nathanäel” en Les Contes d'Hoffmann ,entre otros.
+          cantantes del Opernstudio de la Ópera Estatal de Berlín (<strong
+            >Berliner Staatsoper</strong
+          >) en la temporada 2025-2026 donde interpretará roles como “<strong
+            >Max</strong
+          >” en Der Freischütz, “<strong>Flavio</strong>” en Norma, “<strong
+            >Scaramuccio</strong
+          >” en Ariadne auf Naxos, “<strong>Nathanäel</strong>” en Les Contes
+          d'Hoffmann ,entre otros.
         </p>
         <div class="flex justify-center lg:justify-start">
           <a
@@ -269,132 +274,7 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
   </div>
 
   <!-- Testimonials Section -->
-  <div class="bg-white py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <!-- Carousel Container -->
-      <div class="relative overflow-hidden">
-        <div
-          id="testimonials-carousel"
-          class="flex transition-transform duration-500 ease-in-out"
-        >
-          <!-- Testimonial 1 -->
-          <div class="w-full flex-shrink-0 px-4">
-            <div
-              class="bg-gray-50 rounded-lg p-8 text-center max-w-4xl mx-auto"
-            >
-              <div class="text-4xl text-gray-400 mb-4">"</div>
-              <p class="text-2xl text-gray-700 mb-6 italic leading-relaxed">
-                La voz de Álvaro Diana posee una calidad excepcional que combina
-                técnica impecable con una sensibilidad artística extraordinaria.
-                Su interpretación de Don Ottavio fue memorable.
-              </p>
-              <div class="flex items-center justify-center text-lg">
-                <div>
-                  <p class="font-semibold text-gray-900">
-                    Maestro Giovanni Rossi
-                  </p>
-                  <p class="text-gray-600">
-                    Director de Orquesta, Teatro Circo
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="w-full flex-shrink-0 px-4">
-            <div
-              class="bg-gray-50 rounded-lg p-8 text-center max-w-4xl mx-auto"
-            >
-              <div class="text-4xl text-gray-400 mb-4">"</div>
-              <p class="text-2xl text-gray-700 mb-6 italic leading-relaxed">
-                Un tenor con una musicalidad excepcional y una presencia
-                escénica cautivadora. Álvaro aporta una interpretación fresca y
-                auténtica a cada papel que interpreta.
-              </p>
-              <div class="flex items-center justify-center text-lg">
-                <div>
-                  <p class="font-semibold text-gray-900">María Fernández</p>
-                  <p class="text-gray-600">
-                    Directora Artística, Staatsoper Berlin
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="w-full flex-shrink-0 px-4">
-            <div
-              class="bg-gray-50 rounded-lg p-8 text-center max-w-4xl mx-auto"
-            >
-              <div class="text-4xl text-gray-400 mb-4">"</div>
-              <p class="text-2xl text-gray-700 mb-6 italic leading-relaxed">
-                Su técnica vocal es sólida y su capacidad para conectar
-                emocionalmente con el público es verdaderamente notable. Un
-                artista completo con gran futuro por delante.
-              </p>
-              <div class="flex items-center justify-center text-lg">
-                <div>
-                  <p class="font-semibold text-gray-900">Dr. Carlos Mendoza</p>
-                  <p class="text-gray-600">Crítico Musical, El País</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation Buttons -->
-        <button
-          id="prev-btn"
-          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200 z-10 hidden sm:block"
-        >
-          <svg
-            class="w-5 h-5 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-        <button
-          id="next-btn"
-          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200 z-10 hidden sm:block"
-        >
-          <svg
-            class="w-5 h-5 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Dots Indicator -->
-      <div class="flex justify-center mt-8 space-x-2">
-        <button
-          class="dot w-3 h-3 bg-gray-900 rounded-full transition-colors duration-200"
-          data-slide="0"></button>
-        <button
-          class="dot w-3 h-3 bg-gray-300 rounded-full transition-colors duration-200"
-          data-slide="1"></button>
-        <button
-          class="dot w-3 h-3 bg-gray-300 rounded-full transition-colors duration-200"
-          data-slide="2"></button>
-      </div>
-    </div>
-  </div>
+  <Testimonials />
 
   <!-- Latest Events Section -->
   <div class="bg-gray-50 py-16">
@@ -439,59 +319,4 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
       </div>
     </div>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const carousel = document.getElementById("testimonials-carousel");
-      const prevBtn = document.getElementById("prev-btn");
-      const nextBtn = document.getElementById("next-btn");
-      const dots = document.querySelectorAll(".dot");
-      let currentSlide = 0;
-      const totalSlides = 3;
-
-      if (!carousel || !prevBtn || !nextBtn) return;
-
-      function updateCarousel() {
-        if (!carousel) return;
-        const translateX = -currentSlide * 100;
-        carousel.style.transform = `translateX(${translateX}%)`;
-
-        // Update dots
-        dots.forEach((dot, index) => {
-          if (index === currentSlide) {
-            dot.classList.remove("bg-gray-300");
-            dot.classList.add("bg-gray-900");
-          } else {
-            dot.classList.remove("bg-gray-900");
-            dot.classList.add("bg-gray-300");
-          }
-        });
-      }
-
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-      }
-
-      function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-      }
-
-      // Event listeners
-      nextBtn.addEventListener("click", nextSlide);
-      prevBtn.addEventListener("click", prevSlide);
-
-      // Dot navigation
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          currentSlide = index;
-          updateCarousel();
-        });
-      });
-
-      // Auto-play (optional)
-      setInterval(nextSlide, 5000);
-    });
-  </script>
 </Layout>

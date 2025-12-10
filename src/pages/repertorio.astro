@@ -216,13 +216,18 @@ const activeCategory = "opera";
 <Layout title="Repertorio">
   <!-- Hero Section -->
   <div
-    class="min-h-[100dvh] bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-right flex flex-col justify-end"
+    class="min-h-[60dvh] md:min-h-[100dvh] bg-[url('../assets/biografia.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-right flex flex-col justify-end"
   >
-    <h2 class="text-5xl text-white pl-20 font-semibold mb-10">Repertorio</h2>
+    <h2 class="text-5xl text-white pl-20 font-semibold mb-10 hidden md:block">
+      Repertorio
+    </h2>
   </div>
 
   <!-- Repertoire Table -->
   <div class="container mx-auto px-4 lg:px-8 py-12">
+    <h2 class="text-5xl text-center font-semibold mb-10 block md:hidden">
+      Repertorio
+    </h2>
     <!-- Table for larger screens -->
     <div class="hidden md:block overflow-x-auto">
       <table class="w-full border-collapse">

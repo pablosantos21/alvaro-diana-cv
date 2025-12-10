@@ -3,22 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import eventsData from "../data/staatsoper-alvaro-events.json";
 import EventItem from "../components/EventItem.astro";
 
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  return d.toLocaleDateString("es-ES", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
-
-function formatDateShort(dateStr: string) {
-  const d = new Date(dateStr);
-  const day = d.getDate();
-  const month = d.toLocaleDateString("es-ES", { month: "short" });
-  return { day: day.toString(), month };
-}
-
 const plays = eventsData.plays || [];
 
 // Build plays with sorted occurrences, start/end timestamps and a localized dateRange string
@@ -115,16 +99,17 @@ const previousPlays = playsWithRanges
 <Layout title="Eventos">
   <!-- Hero Section -->
   <div
-    class="min-h-[50dvh] md:min-h-[100dvh] bg-[url('../assets/test8.webp')] md:bg-[url('../assets/test7.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-top flex flex-col justify-end"
+    class="min-h-[60dvh] md:min-h-[100dvh] bg-[url('../assets/test8.webp')] md:bg-[url('../assets/test7.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-[70%_center] md:bg-top flex flex-col justify-end"
   >
-    <h2
-      class="text-5xl text-white md:pl-20 text-center md:text-left font-semibold mb-10"
-    >
+    <h2 class="text-5xl text-white pl-20 font-semibold mb-10 hidden md:block">
       Eventos
     </h2>
   </div>
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-5xl text-center font-semibold mb-10 block md:hidden">
+      Eventos
+    </h2>
     <!-- Navigation Tabs -->
     <div class="mb-12">
       <nav
