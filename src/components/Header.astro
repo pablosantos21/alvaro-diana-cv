@@ -11,19 +11,19 @@ import logoBlack from "../assets/logo_black.png";
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <h1
       id="site-title"
-      class="text-xl font-bold text-white transition-colors duration-300"
+      class="text-xl font-bold text-white transition-colors duration-300 flex-1 flex justify-center md:justify-start"
     >
       <a href="/" class="hover:opacity-80 transition-opacity duration-300">
         <Image
           src={logoWhite}
           alt="Álvaro Diana"
-          class="h-16 w-16 block transition-opacity duration-300"
+          class="h-auto w-30 md:h-16 md:w-16 block transition-opacity duration-300 mx-auto"
           id="logo-white"
         />
         <Image
           src={logoBlack}
           alt="Álvaro Diana"
-          class="h-16 w-16 hidden transition-opacity duration-300"
+          class="h-auto w-30 md:h-16 md:w-16 hidden transition-opacity duration-300 mx-auto"
           id="logo-black"
         />
       </a>
@@ -32,12 +32,12 @@ import logoBlack from "../assets/logo_black.png";
     <!-- Hamburger button for mobile -->
     <button
       id="menu-toggle"
-      class="md:hidden text-white focus:outline-none ml-auto md:ml-0 order-3 md:order-2"
+      class="md:hidden text-white focus:outline-none ml-auto md:ml-0 order-3 md:order-2 p-2"
       aria-label="Abrir menú"
       aria-expanded="false"
     >
       <svg
-        class="w-6 h-6"
+        class="w-8 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -109,6 +109,18 @@ import logoBlack from "../assets/logo_black.png";
     >
       ✕
     </button>
+  </div>
+
+  <!-- Mobile modal logo (centered at top) -->
+  <div class="absolute top-6 left-1/2 transform -translate-x-1/2">
+    <a href="/" class="block" aria-label="Álvaro Diana">
+      <Image
+        src={logoWhite}
+        alt="Álvaro Diana"
+        id="modal-logo-white"
+        class="h-20 w-20 md:h-16 md:w-16"
+      />
+    </a>
   </div>
 
   <nav class="h-full flex items-center justify-center">

@@ -3,8 +3,16 @@ import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 import principal from "../assets/principal.webp";
 import principalMobile from "../assets/alvaro.webp";
+import img1 from "../assets/zurich.png";
+import img2 from "../assets/barcelona.webp";
+import img3 from "../assets/les_art.png";
+import img4 from "../assets/palau.png";
+import img5 from "../assets/gran_canaria.png";
+import img6 from "../assets/berlin.avif";
 import eventsData from "../data/staatsoper-alvaro-events.json";
 import EventItem from "../components/EventItem.astro";
+
+const images = [img1, img2, img3, img4, img5, img6];
 
 // Helper to format a human-friendly date range for a play's occurrences
 function formatDateRange(occs) {
@@ -91,7 +99,6 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
       class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12"
     >
       <div class="w-full lg:w-1/2 flex justify-center">
-
         {/* Desktop image (hidden on small screens) */}
         <Image
           src={principal}
@@ -117,7 +124,7 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
             href="/biografia"
             class="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 text-sm sm:text-base"
           >
-            Conoce mi historia
+            Más sobre mi
             <svg
               class="ml-2 w-4 h-4"
               fill="none"
@@ -136,7 +143,115 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
       </div>
     </div>
   </div>
+  <!-- Scrolling image strip (endless right-to-left marquee) -->
+  <div class="mt-6 mb-6">
+    <div class="marquee overflow-hidden">
+      <div class="marquee__content flex will-change-transform">
+        <div class="marquee__group flex gap-30 items-center">
+          {
+            images.map((img, index) => (
+              <div class="flex-shrink-0">
+                <Image
+                  src={img}
+                  alt={`preview-${index}`}
+                  class="h-12 w-auto rounded-md object-cover block"
+                />
+              </div>
+            ))
+          }
+          {
+            images.map((img, index) => (
+              <div class="flex-shrink-0">
+                <Image
+                  src={img}
+                  alt={`preview-${index}`}
+                  class="h-12 w-auto rounded-md object-cover block"
+                />
+              </div>
+            ))
+          }
+          {
+            images.map((img, index) => (
+              <div class="flex-shrink-0">
+                <Image
+                  src={img}
+                  alt={`preview-${index}`}
+                  class="h-12 w-auto rounded-md object-cover block"
+                />
+              </div>
+            ))
+          }
+          {
+            images.map((img, index) => (
+              <div class="flex-shrink-0">
+                <Image
+                  src={img}
+                  alt={`preview-${index}`}
+                  class="h-12 w-auto rounded-md object-cover block"
+                />
+              </div>
+            ))
+          }
+          {
+            images.map((img, index) => (
+              <div class="flex-shrink-0">
+                <Image
+                  src={img}
+                  alt={`preview-${index}`}
+                  class="h-12 w-auto rounded-md object-cover block"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <style>
+    /* Marquee animation: duplicate content and translate -50% for a seamless loop */
+    .marquee {
+      overflow: hidden;
+    }
+    .marquee__content {
+      display: flex;
+      align-items: center;
+      /* ensure content width equals both groups' width; prevents wrapping/jumps */
+      min-width: max-content;
+      animation: marquee-rtl 100s linear infinite;
+      will-change: transform;
+    }
+    .marquee__group {
+      display: flex;
+      align-items: center;
+      /* Ensure each group doesn't shrink and children keep their size */
+      flex: 0 0 auto;
+    }
+    .marquee__group > * {
+      flex: 0 0 auto;
+    }
+
+    @keyframes marquee-rtl {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Make sure the duplicated group is not focusable for assistive tech */
+    .marquee__group[aria-hidden] {
+      pointer-events: none;
+    }
+
+    /* Respect user motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .marquee__content {
+        animation: none;
+      }
+    }
+  </style>
   <!-- Video Section -->
   <div class="bg-gray-50 py-16">
     <div class="max-w-4xl mx-auto px-6">

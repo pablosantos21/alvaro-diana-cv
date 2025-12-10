@@ -31,11 +31,61 @@ const pageTitle = title === "Álvaro Diana" ? title : `${title} - Álvaro Diana`
 </html>
 
 <style>
+  /* Load local WoodfordBournePRO fonts from /public/fonts and map weights/styles */
+  @font-face {
+    font-family: "Woodford Bourne Pro";
+    src: url("/fonts/WoodfordBournePRO-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Woodford Bourne Pro";
+    src: url("/fonts/WoodfordBournePRO-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Woodford Bourne Pro";
+    src: url("/fonts/WoodfordBournePRO-Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Woodford Bourne Pro";
+    src: url("/fonts/WoodfordBournePRO-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Woodford Bourne Pro";
+    src: url("/fonts/WoodfordBournePRO-Thin.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Woodford Bourne Pro";
+    src: url("/fonts/WoodfordBournePRO-ThinItalic.otf") format("opentype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+  }
+
   html,
   body {
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: "Montserrat Variable", sans-serif;
+    /* Use local Woodford Bourne Pro as primary, fall back to Montserrat variable then generic sans */
+    font-family: "Woodford Bourne Pro", "Montserrat Variable", sans-serif;
   }
 </style>
