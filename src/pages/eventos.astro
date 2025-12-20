@@ -99,7 +99,7 @@ const previousPlays = playsWithRanges
 <Layout title="Eventos">
   <!-- Hero Section -->
   <div
-    class="min-h-[60dvh] md:min-h-[100dvh] bg-[url('../assets/test8.webp')] md:bg-[url('../assets/test7.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-[70%_center] md:bg-top flex flex-col justify-end"
+    class="min-h-[60dvh]  bg-[url('../assets/test8.webp')] md:bg-[url('../assets/test7.jpeg')] bg-black/50 bg-blend-overlay bg-cover bg-[70%_center] md:bg-top flex flex-col justify-end"
   >
     <h2 class="text-5xl text-white pl-20 font-semibold mb-10 hidden md:block">
       Eventos
@@ -136,15 +136,6 @@ const previousPlays = playsWithRanges
 
     <!-- Upcoming panel -->
     <div data-panel="upcoming">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Próximos Eventos
-        </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          No te pierdas mis próximas actuaciones en algunos de los teatros más
-          prestigiosos del mundo.
-        </p>
-      </div>
 
       {
         upcomingPlays.length === 0 ? (
@@ -168,15 +159,7 @@ const previousPlays = playsWithRanges
 
     <!-- Previous panel -->
     <div data-panel="previous" hidden>
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Eventos Anteriores
-        </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          Un recorrido por las actuaciones más destacadas de mi carrera
-          artística.
-        </p>
-      </div>
+      
 
       {
         previousPlays.length === 0 ? (
