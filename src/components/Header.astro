@@ -8,25 +8,25 @@ import logoBlack from "../assets/logo_black.png";
   id="site-header"
   class="fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-transparent"
 >
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center relative">
     <h1
       id="site-title"
       class="text-xl font-bold text-white transition-colors duration-300 flex-1 flex justify-center md:justify-start"
     >
       <a
         href="/"
-        class="hover:opacity-80 transition-opacity duration-300 ml-11 md:m-auto"
+        class="hover:opacity-80 transition-opacity duration-300"
       >
         <Image
           src={logoWhite}
           alt="Álvaro Diana"
-          class="h-auto w-30 md:h-16 md:w-16 block transition-opacity duration-300 mx-auto"
+          class="h-auto w-30 md:h-16 md:w-16 block transition-opacity duration-300"
           id="logo-white"
         />
         <Image
           src={logoBlack}
           alt="Álvaro Diana"
-          class="h-auto w-30 md:h-16 md:w-16 hidden transition-opacity duration-300 mx-auto"
+          class="h-auto w-30 md:h-16 md:w-16 hidden transition-opacity duration-300"
           id="logo-black"
         />
       </a>
@@ -35,7 +35,7 @@ import logoBlack from "../assets/logo_black.png";
     <!-- Hamburger button for mobile -->
     <button
       id="menu-toggle"
-      class="md:hidden text-white focus:outline-none ml-auto md:ml-0 order-3 md:order-2 p-2"
+      class="md:hidden text-white focus:outline-none  p-2 absolute right-4"
       aria-label="Abrir menú"
       aria-expanded="false"
     >
@@ -61,33 +61,33 @@ import logoBlack from "../assets/logo_black.png";
         <li>
           <a
             href="/biografia"
-            class="block px-4 py-2 text-white hover:underline">Biografía</a
+            class="block px-4 py-2 text-white hover:underline font-semibold">Biografía</a
           >
         </li>
         <li>
-          <a href="/eventos" class="block px-4 py-2 text-white hover:underline"
+          <a href="/eventos" class="block px-4 py-2 text-white hover:underline font-semibold"
             >Eventos</a
           >
         </li>
         <li>
           <a
             href="/repertorio"
-            class="block px-4 py-2 text-white hover:underline">Repertorio</a
+            class="block px-4 py-2 text-white hover:underline font-semibold">Repertorio</a
           >
         </li>
         <li>
-          <a href="/fotos" class="block px-4 py-2 text-white hover:underline"
+          <a href="/fotos" class="block px-4 py-2 text-white hover:underline font-semibold"
             >Fotos</a
           >
         </li>
         <li>
-          <a href="/videos" class="block px-4 py-2 text-white hover:underline"
+          <a href="/videos" class="block px-4 py-2 text-white hover:underline font-semibold"
             >Videos</a
           >
         </li>
 
         <li>
-          <a href="/contacto" class="block px-4 py-2 text-white hover:underline"
+          <a href="/contacto" class="block px-4 py-2 text-white hover:underline font-semibold"
             >Contacto</a
           >
         </li>
@@ -104,19 +104,8 @@ import logoBlack from "../assets/logo_black.png";
   aria-modal="true"
   aria-hidden="true"
 >
-  <div class="absolute top-4 right-4">
-    <button
-      id="mobile-menu-close"
-      aria-label="Cerrar menú"
-      class="text-white p-2"
-    >
-      ✕
-    </button>
-  </div>
-
-  <!-- Mobile modal logo (centered at top) -->
-  <div class="absolute top-4 left-1/2 transform -translate-x-1/2">
-    <a href="/" class="block" aria-label="Álvaro Diana">
+<div class="flex p-4 items-center justify-center relative">
+ <a href="/" class="flex justify-center" aria-label="Álvaro Diana">
       <Image
         src={logoWhite}
         alt="Álvaro Diana"
@@ -124,19 +113,28 @@ import logoBlack from "../assets/logo_black.png";
         class="h-auto w-30 md:h-16 md:w-16"
       />
     </a>
-  </div>
+      <button
+      id="mobile-menu-close"
+      aria-label="Cerrar menú"
+      class="text-white focus:outline-none p-2 absolute right-4"
+    >
+      ✕
+    </button>
+</div>
 
-  <nav class="h-full flex items-center justify-center">
-    <ul
+
+  <nav class="h-full flex items-start justify-center mt-4">
+      <ul
       id="mobile-menu"
       class="flex flex-col items-center gap-6 text-white text-lg uppercase"
     >
-      <li><a href="/biografia" class="px-4 py-2">Biografía</a></li>
-      <li><a href="/eventos" class="px-4 py-2">Eventos</a></li>
-      <li><a href="/repertorio" class="px-4 py-2">Repertorio</a></li>
-      <li><a href="/fotos" class="px-4 py-2">Fotos</a></li>
-      <li><a href="/videos" class="px-4 py-2">Videos</a></li>
-      <li><a href="/contacto" class="px-4 py-2">Contacto</a></li>
+          <li><a href="/" class="px-4 py-2 font-semibold">Inicio</a></li>
+      <li><a href="/biografia" class="px-4 py-2 font-semibold">Biografía</a></li>
+      <li><a href="/eventos" class="px-4 py-2 font-semibold">Eventos</a></li>
+      <li><a href="/repertorio" class="px-4 py-2 font-semibold">Repertorio</a></li>
+      <li><a href="/fotos" class="px-4 py-2 font-semibold">Fotos</a></li>
+      <li><a href="/videos" class="px-4 py-2 font-semibold">Videos</a></li>
+      <li><a href="/contacto" class="px-4 py-2 font-semibold">Contacto</a></li>
     </ul>
   </nav>
 </div>
