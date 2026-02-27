@@ -1,0 +1,16 @@
+# ─── Build ────────────────────────────────────────────────────────────────────
+
+[build]
+  command   = "pnpm build"
+  publish   = "dist"
+
+# ─── Functions ────────────────────────────────────────────────────────────────
+
+[functions]
+  directory    = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Schedule the rebuild-trigger to run every day at 02:00 UTC.
+# Cron syntax: minute hour day-of-month month day-of-week
+[functions."trigger-rebuild"]
+  schedule = "0 2 * * *"

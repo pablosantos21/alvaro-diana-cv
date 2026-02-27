@@ -26,6 +26,10 @@ importers:
       tailwindcss:
         specifier: ^4.1.13
         version: 4.1.13
+    devDependencies:
+      '@netlify/functions':
+        specifier: ^5.1.2
+        version: 5.1.2
 
 packages:
 
@@ -469,6 +473,10 @@ packages:
     resolution: {integrity: sha512-uKfibdJDGyOG5+XTHqEbtlIWEHJ7mMK4cMZHBJ42FqGIAFbJBTYb/+EmPrQQ3vEJMRETxMxEjaL5C7WNgBxYNQ==}
     engines: {node: '>=18.0.0'}
 
+  '@netlify/functions@5.1.2':
+    resolution: {integrity: sha512-tpPiLSkQatuexH8AdAZ8RlALvT7ixOE9VhvpkzQGNvihcms8hzmvUDuSxQa7UneTj/sHsdirnXmnJ+nmf+Nx/w==}
+    engines: {node: '>=18.0.0'}
+
   '@netlify/headers-parser@9.0.2':
     resolution: {integrity: sha512-86YEGPxVemhksY1LeSr8NSOyH11RHvYHq+FuBJnTlPZoRDX+TD+0TAxF6lwzAgVTd1VPkyFEHlNgUGqw7aNzRQ==}
     engines: {node: '>=18.14.0'}
@@ -511,6 +519,10 @@ packages:
 
   '@netlify/types@2.0.3':
     resolution: {integrity: sha512-OcV8ivKTdsyANqVSQzbusOA7FVtE9s6zwxNCGR/aNnQaVxMUgm93UzKgfR7cZ1nnQNZHAbjd0dKJKaAUqrzbMw==}
+    engines: {node: ^18.14.0 || >=20}
+
+  '@netlify/types@2.3.0':
+    resolution: {integrity: sha512-5gxMWh/S7wr0uHKSTbMv4bjWmWSpwpeLYvErWeVNAPll5/QNFo9aWimMAUuh8ReLY3/fg92XAroVVu7+z27Snw==}
     engines: {node: ^18.14.0 || >=20}
 
   '@netlify/vite-plugin@2.6.0':
@@ -3751,6 +3763,10 @@ snapshots:
       - rollup
       - supports-color
 
+  '@netlify/functions@5.1.2':
+    dependencies:
+      '@netlify/types': 2.3.0
+
   '@netlify/headers-parser@9.0.2':
     dependencies:
       '@iarna/toml': 2.2.5
@@ -3821,6 +3837,8 @@ snapshots:
       mime-types: 3.0.1
 
   '@netlify/types@2.0.3': {}
+
+  '@netlify/types@2.3.0': {}
 
   '@netlify/vite-plugin@2.6.0(rollup@4.52.2)(vite@6.3.6(@types/node@24.5.2)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.1))':
     dependencies:

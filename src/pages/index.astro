@@ -9,7 +9,7 @@ import img3 from "../assets/les_art.png";
 import img4 from "../assets/palau.png";
 import img5 from "../assets/gran_canaria.png";
 import img6 from "../assets/berlin.avif";
-import eventsData from "../data/staatsoper-alvaro-events.json";
+import eventsData from "../data/events.json";
 import EventItem from "../components/EventItem.astro";
 import Testimonials from "../components/Testimonials.astro";
 
@@ -77,7 +77,7 @@ const upcomingPlays = plays
   .sort(
     (a, b) =>
       new Date(a.occurrences[0].date).getTime() -
-      new Date(b.occurrences[0].date).getTime()
+      new Date(b.occurrences[0].date).getTime(),
   );
 
 // Limit how many to show on the homepage (3 by default)
