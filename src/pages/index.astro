@@ -9,7 +9,7 @@ import img3 from "../assets/les_art.png";
 import img4 from "../assets/palau.png";
 import img5 from "../assets/gran_canaria.png";
 import img6 from "../assets/berlin.avif";
-import eventsData from "../data/staatsoper-alvaro-events.json";
+import eventsData from "../data/events.json";
 import EventItem from "../components/EventItem.astro";
 import Testimonials from "../components/Testimonials.astro";
 
@@ -77,7 +77,7 @@ const upcomingPlays = plays
   .sort(
     (a, b) =>
       new Date(a.occurrences[0].date).getTime() -
-      new Date(b.occurrences[0].date).getTime()
+      new Date(b.occurrences[0].date).getTime(),
   );
 
 // Limit how many to show on the homepage (3 by default)
@@ -91,7 +91,7 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
 
 <Layout title="Álvaro Diana">
   <div
-    class="relative min-h-[100dvh] md:min-h-[60dvh] bg-[url('../assets/principal-1.png')] md:bg-[url('../assets/test1.webp')] bg-cover bg-no-repeat bg-center flex items-center"
+    class="relative min-h-[100dvh] md:min-h-[60dvh] bg-[url('../assets/principal-1.png')] md:bg-[url('../assets/test1.webp')] bg-cover bg-no-repeat bg-[70%_30%] md:bg-top flex items-center"
   >
     <!-- <div class="absolute inset-0 bg-black/50"></div> -->
   </div>
@@ -108,11 +108,11 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
         />
       </div>
       <div class="w-full lg:w-1/2 text-center lg:text-left">
-        <h3 class="text-3xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6">
+        <h3 class="text-2xl sm:text-2xl lg:text-3xl font-bold mb-4 lg:mb-6">
           Álvaro Diana
         </h3>
         <p
-          class="mb-6 lg:mb-8 text-gray-700 leading-relaxed text-xl max-w-2xl mx-auto lg:mx-0"
+          class="mb-6 lg:mb-8 text-gray-700 leading-relaxed text-lg max-w-2xl mx-auto lg:mx-0"
         >
           El tenor Español ha sido seleccionado para formar parte del roster de
           cantantes del Opernstudio de la Ópera Estatal de Berlín (<strong
@@ -280,7 +280,7 @@ const homepagePlays = upcomingPlays.slice(0, 3).map((p) => ({
   <div class="bg-gray-50 py-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Próximos Eventos</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Próximos Eventos</h2>
         <p class="text-gray-600 max-w-2xl mx-auto text-lg">
           No te pierdas mis próximas actuaciones en algunos de los teatros más
           prestigiosos del mundo.

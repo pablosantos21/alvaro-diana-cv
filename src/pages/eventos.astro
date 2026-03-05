@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import eventsData from "../data/staatsoper-alvaro-events.json";
+import eventsData from "../data/events.json";
 import EventItem from "../components/EventItem.astro";
 
 const plays = eventsData.plays || [];
@@ -61,7 +61,7 @@ const playsWithRanges = plays.map((play) => {
     endDate: endTs,
     dateRange: formatRange(
       first ? new Date(first.date) : null,
-      last ? new Date(last.date) : null
+      last ? new Date(last.date) : null,
     ),
     eventUrl: first ? first.eventUrl : "",
   };
@@ -78,7 +78,7 @@ const upcomingPlays = playsWithRanges
   .map((p) => ({
     ...p,
     occurrences: (p.occurrences || []).filter(
-      (o) => new Date(o.date).getTime() >= startOfToday
+      (o) => new Date(o.date).getTime() >= startOfToday,
     ),
   }))
   .filter((p) => (p.occurrences || []).length > 0)
@@ -89,7 +89,7 @@ const previousPlays = playsWithRanges
   .map((p) => ({
     ...p,
     occurrences: (p.occurrences || []).filter(
-      (o) => new Date(o.date).getTime() < startOfToday
+      (o) => new Date(o.date).getTime() < startOfToday,
     ),
   }))
   .filter((p) => (p.occurrences || []).length > 0)
@@ -104,9 +104,7 @@ const previousPlays = playsWithRanges
   </div>
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <h2 class="text-5xl text-center font-semibold mb-10">
-      Eventos
-    </h2>
+    <h2 class="text-5xl text-center font-semibold mb-10">Eventos</h2>
     <!-- Navigation Tabs -->
     <div class="mb-12">
       <nav
@@ -133,7 +131,6 @@ const previousPlays = playsWithRanges
 
     <!-- Upcoming panel -->
     <div data-panel="upcoming">
-
       {
         upcomingPlays.length === 0 ? (
           <div class="text-center py-12">
@@ -156,8 +153,6 @@ const previousPlays = playsWithRanges
 
     <!-- Previous panel -->
     <div data-panel="previous" hidden>
-      
-
       {
         previousPlays.length === 0 ? (
           <div class="text-center py-12">

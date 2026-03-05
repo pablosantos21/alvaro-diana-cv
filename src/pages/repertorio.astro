@@ -216,16 +216,14 @@ const activeCategory = "opera";
 <Layout title="Repertorio">
   <!-- Hero Section -->
   <div
-    class="relative min-h-[60dvh]  bg-[url('../assets/biografia.jpeg')] bg-cover bg-right flex flex-col justify-end overflow-hidden"
+    class="relative min-h-[60dvh] bg-[url('../assets/biografia.jpeg')] bg-cover bg-[center_30%] flex flex-col justify-end overflow-hidden"
   >
     <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
   </div>
 
   <!-- Repertoire Table -->
   <div class="container mx-auto px-4 lg:px-8 py-12">
-    <h2 class="text-5xl text-center font-semibold mb-10">
-      Repertorio
-    </h2>
+    <h2 class="text-5xl text-center font-semibold mb-10">Repertorio</h2>
     <!-- Table for larger screens -->
     <div class="hidden md:block overflow-x-auto">
       <table class="w-full border-collapse">
@@ -272,7 +270,7 @@ const activeCategory = "opera";
                   <td class="py-6 px-6 text-gray-900">{work.role}</td>
                   <td class="py-6 px-6 text-gray-500">{work.status}</td>
                 </tr>
-              ))
+              )),
             )
           }
         </tbody>

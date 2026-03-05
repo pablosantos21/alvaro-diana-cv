@@ -35,15 +35,13 @@ const photos = [
 
 <Layout title="Fotos">
   <div
-    class="min-h-[60dvh]  bg-[url('../assets/test4.webp')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
+    class="min-h-[60dvh] bg-[url('../assets/test4.webp')] bg-black/50 bg-blend-overlay bg-cover bg-center flex flex-col justify-end"
   >
   </div>
 
   <!-- Photos masonry section -->
   <section class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-5xl text-center font-semibold mb-10">
-      Fotos
-    </h2>
+    <h2 class="text-5xl text-center font-semibold mb-10">Fotos</h2>
     <div class="masonry columns-1 sm:columns-2 lg:columns-3 gap-4">
       {
         photos.map((p, i) => (
@@ -69,7 +67,7 @@ const photos = [
     <button
       id="lightbox-close"
       aria-label="Cerrar"
-      class="absolute top-6 right-6 text-white text-3xl leading-none">✕</button
+      class="absolute top-6 right-6 text-white text-2xl leading-none">✕</button
     >
     <img
       id="lightbox-img"
