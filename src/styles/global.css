@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer base {
+   h2 {
+    font-family: "Montserrat Variable", "Montserrat", sans-serif;
+  }
+}
